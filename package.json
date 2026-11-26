@@ -1,0 +1,46 @@
+{
+  "name": "@adaption/openclaw-provider",
+  "version": "0.1.0",
+  "description": "Adaption model provider plugin for OpenClaw.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adaptionlabs/adaption-openclaw-plugin.git"
+  },
+  "homepage": "https://github.com/adaptionlabs/adaption-openclaw-plugin#readme",
+  "keywords": ["openclaw", "openclaw-plugin", "adaption", "llm", "provider"],
+  "files": ["dist", "openclaw.plugin.json", "assets", "README.md", "CHANGELOG.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run test/models.test.ts",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.11.10"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "openclaw": "2026.11.10",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "openclaw": {
+    "extensions": ["./dist/index.js"],
+    "install": {
+      "npmSpec": "@adaption/openclaw-provider",
+      "defaultChoice": "npm",
+      "minHostVersion": ">=2026.11.10"
+    },
+    "compat": {
+      "pluginApi": ">=2026.11.10"
+    },
+    "build": {
+      "openclawVersion": "2026.11.10"
+    }
+  }
+}
